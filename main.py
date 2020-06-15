@@ -1,31 +1,19 @@
+
+import
 import base64
-import sys
-import collections
-import datetime
-from pathlib import Path
-from urllib.parse import urlparse
-from services.zone import (
-    insert_zone,
-    get_zone,
-    edit_zone,
-    delete_zone,
-    add_alert,
-    get_zone_alerts,
-    edit_alert,
-    delete_alerts,
-    get_alerts_notifications,
-)
-from services.network_scan import ( create_network_session, get_network_session, get_network_sensors, active_cameras, camera_authentication,delete_session,
-    
-)
+import flash
+import django
+import django1
+import django2
+from multiprocessing import Process, Queue
+from services.zone import ( insert_zone, get_zone, edit_zone, delete_zone, add_alert, get_zone_alerts, edit_alert, delete_alerts, get_alerts_notifications,)
+
 from services.flame_alerts import get_open_state_alerts, change_alert_state
-from config import (
-    all_configs,
-    data,
-    get_env_variable,
-    second_stage_names_path,
-    default_known_stickers,
-)
+import docker
+import yaml
+import pymongo
+from bson import ObjectId
+from cam_status import cameras_status
 from fastapi import (
     Depends,
     FastAPI,
@@ -54,16 +42,12 @@ from models import (
     BulkSensors,
     AuthenticateSensor,
 )
-from core.events import create_start_app_handler
-from core.alert_type import AlertType
+
 from core.config import sensors, proj_settings
 from pagination import Pagination
 from services.spaces_apis import router as spaces_apis
 from services.mail_room import router as mailroom_apis
 from services.mtel_ids import get_mtel_ids_from_db
-from services.zone_statistics import router as zone_statistics_apis
-from services.multiple_sensors import insert_bulk_of_cameras
-from services.feedback import insert_feedback, get_feedback
 from services.high_value_asset import insert_ids, get_ids
 from services.avgm_integration import get_all_avgm_records
 from services.project_settings import router as project_settings_apis
