@@ -31,10 +31,10 @@ jobs:
             cuda_version: CUDA_7_5
           - cuda: 86
             cuda_version: CUDA_8_6
+    env:
+      CUDA: ${{ matrix.cuda }}
+      VERSION: ${{ matrix.cuda_version }}
     steps:
       - name: Echo Cuda jobs
-        env:
-          CUDA: ${{ matrix.cuda }}
-          VERSION: ${{ matrix.cuda_version }}
         run: echo $CUDA $VERSION
 
