@@ -18,20 +18,23 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
+    name: AI Core USPS ${{ matrix.cuda }} Service Build and Publish
     runs-on: ubuntu-latest
     strategy:
       matrix:
        include:
-         - node-version: 10.x
-           site: "prod"
-           datacenter: "site-a"
-         - node-version: 12.x
-           site: "dev"
-           datacenter: "site-b"
+          - cuda: 61
+            cuda_version: CUDA_6_1
+          - cuda: 70
+            cuda_version: CUDA_7_0
+          - cuda: 75
+            cuda_version: CUDA_7_5
+          - cuda: 86
+            cuda_version: CUDA_8_6
     steps:
-      - name: Echo site details
+      - name: Echo Cuda jobs
         env:
-          SITE: ${{ matrix.site }}
-          DATACENTER: ${{ matrix.datacenter }}
-        run: echo $SITE $DATACENTER
+          CUDA: ${{ matrix.cuda }}
+          VERSION: ${{ matrix.cuda_version }}
+        run: echo $CUDA $VERSION
 
