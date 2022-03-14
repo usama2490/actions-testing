@@ -25,16 +25,22 @@ jobs:
        include:
           - cuda: 61
             cuda_version: CUDA_6_1
+            proj: usps
           - cuda: 70
             cuda_version: CUDA_7_0
-          - cuda: 75
-            cuda_version: CUDA_7_5
-          - cuda: 86
-            cuda_version: CUDA_8_6
+            proj: wibo
+#           - cuda: 75
+#             cuda_version: CUDA_7_5
+#           - cuda: 86
+#             cuda_version: CUDA_8_6
     env:
       CUDA: ${{ matrix.cuda }}
-      VERSION: ${{ matrix.cuda_version }}
+      VERSION: ${{ matrix.proj }}
     steps:
-      - name: Echo Cuda jobs
+      - name: Set env proj
+        run: |
+          if [[ ${{ matrix.cuda }} == 70  ]]; then
+              echo "proj=surg" >> "${{ matrix.proj }}"
+          fi
+      - name: Echo
         run: echo $CUDA $VERSION
-
