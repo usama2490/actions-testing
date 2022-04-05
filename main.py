@@ -51,9 +51,6 @@ from pagination import Pagination
 from services.spaces_apis import router as spaces_apis
 from services.mail_room import router as mailroom_apis
 from services.mtel_ids import get_mtel_ids_from_db
-from services.zone_statistics import router as zone_statistics_apis
-from services.multiple_sensors import insert_bulk_of_cameras
-from services.feedback import insert_feedback, get_feedback
 from services.high_value_asset import insert_ids, get_ids
 from services.avgm_integration import get_all_avgm_records
 from services.project_settings import router as project_settings_apis
