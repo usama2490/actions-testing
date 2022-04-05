@@ -6,6 +6,9 @@ import django2
 from multiprocessing import Process, Queue
 from services.zone import ( insert_zone, get_zone, edit_zone, delete_zone, add_alert, get_zone_alerts, edit_alert, delete_alerts, get_alerts_notifications,)
 
+from multiprocessing import Process, Queue
+from services.zone import ( insert_zone, get_zone, edit_zone, delete_zone, add_alert, get_zone_alerts, edit_alert, delete_alerts, get_alerts_notifications,)
+
 from services.flame_alerts import get_open_state_alerts, change_alert_state
 import docker
 import yaml
