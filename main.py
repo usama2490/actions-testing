@@ -7,6 +7,7 @@ from services.zone import ( insert_zone, get_zone, edit_zone, delete_zone, add_a
 
 from services.flame_alerts import get_open_state_alerts, change_alert_state
 import docker
+import yaml
 import pymongo
 from bson import ObjectId
 from cam_status import cameras_status
