@@ -9,13 +9,6 @@ import yaml
 import pymongo
 from bson import ObjectId
 from cam_status import cameras_status
-from config import (
-    all_configs,
-    data,
-    get_env_variable,
-    second_stage_names_path,
-    default_known_stickers,
-)
 from fastapi import (
     Depends,
     FastAPI,
