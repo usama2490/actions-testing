@@ -23,13 +23,8 @@ from services.zone import (
     delete_alerts,
     get_alerts_notifications,
 )
-from services.network_scan import (
-    create_network_session,
-    get_network_session,
-    get_network_sensors,
-    active_cameras,
-    camera_authentication,
-    delete_session,
+from services.network_scan import ( create_network_session, get_network_session, get_network_sensors, active_cameras, camera_authentication,delete_session,
+    
 )
 from services.flame_alerts import get_open_state_alerts, change_alert_state
 import docker
