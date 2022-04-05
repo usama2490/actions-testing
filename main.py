@@ -19,10 +19,6 @@ from services.network_scan import ( create_network_session, get_network_session,
     
 )
 from services.flame_alerts import get_open_state_alerts, change_alert_state
-import docker
-import pymongo
-from bson import ObjectId
-from cam_status import cameras_status
 from config import (
     all_configs,
     data,
