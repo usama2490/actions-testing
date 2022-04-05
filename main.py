@@ -5,17 +5,7 @@ from PIL import Image
 from multiprocessing import Process, Queue
 from pathlib import Path
 from urllib.parse import urlparse
-from services.zone import (
-    insert_zone,
-    get_zone,
-    edit_zone,
-    delete_zone,
-    add_alert,
-    get_zone_alerts,
-    edit_alert,
-    delete_alerts,
-    get_alerts_notifications,
-)
+from services.zone import ( insert_zone, get_zone, edit_zone, delete_zone, add_alert, get_zone_alerts, edit_alert, delete_alerts, get_alerts_notifications,)
 from services.network_scan import (
     create_network_session,
     get_network_session,
@@ -64,8 +54,7 @@ from models import (
     BulkSensors,
     AuthenticateSensor,
 )
-from core.events import create_start_app_handler
-from core.alert_type import AlertType
+
 from core.config import sensors, proj_settings
 from pagination import Pagination
 from services.spaces_apis import router as spaces_apis
